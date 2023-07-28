@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>number management service</title>
-  </head>
-  <body>
-    
-        <a href="http://20.244.56.144/numbers/primes" target="_blank">Prime</a>
-        <a href="http://20.244.56.144/numbers/fibo" target="_blank">Fibo</a>
-        <a href="http://20.244.56.144/numbers/odd" target="_blank">Odd</a>
-        <a href="http://20.244.56.144/numbers/rand" target="_blank">Rand</a>
-    
+<head>
+  <title>Number Management HTTP Microservice Test</title>
+</head>
+<body>
+  <h1>Number Management HTTP Microservice Test</h1>
+  <p>Click the button below to call the /numbers API with test URLs.</p>
+  <button onclick="callNumbersAPI()">Call /numbers API</button>
+  <div id="result"></div>
 
-  </body>
+  <script>
+    function callNumbersAPI() {
+      const url1 = "http://20.244.56.144/numbers/primes";
+      const url2 = "http://20.244.56.144/numbers/fibo";
+      const url3 = "http://20.244.56.144/numbers/odd";
+
+      const apiUrl = `http://localhost:3000/numbers?url=${encodeURIComponent(url1)}&url=${encodeURIComponent(url2)}&url=${encodeURIComponent(url3)}`;
+
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("result").innerHTML = `<p>Result: [ ${data.numbers.join(", ")} ]</p>`;
+        })
+        .catch((err) => {
+          document.getElementById("result").innerHTML = `<p>Error: ${err.message}</p>`;
+        });
+    }
+  </script>
+</body>
 </html>
