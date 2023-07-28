@@ -6,9 +6,9 @@ async function getauthToken() {
                 "companyName": "Railway Indian",
                 "clientID": "aa72c05a-4522-4de6-8271-bbbf1296f31d",
                 "clientSecret": "sHZzzaAnhQFNuiUg",
-                "ownerName": "Saurabh Srivastava",
-                "ownerEmail": "Saurabh.20B0131057@abes.ac.in",
-                "rollNo": "2000320130149"
+                "ownerName": "Sudhanshu Kumar",
+                "ownerEmail": "2020543227.sudhanshu@ug.sharda.ac.in",
+                "rollNo": "200101322"
             })
     })
     const thisData = await authData.json()
